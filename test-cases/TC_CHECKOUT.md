@@ -40,20 +40,9 @@
 | **Test Data** | Username: standard_user, Password: secret_sauce |
 | **Steps** | 1. Do NOT add any items<br>2. Click cart icon<br>3. Click Checkout<br>4. Fill form with valid data<br>5. Click Continue |
 | **Expected Result** | System prevents checkout with empty cart or shows warning message |
-| **Actual Result** | User can proceed to checkout with empty cart. No warning shown |
-| **Status** | ❌ Fail |
-| **Bug ID** | BUG-012 |
+| **Actual Result** | User successfully completed checkout 
+                     with empty cart. Order confirmed 
+                     with $0.00 total. No warning shown |
+| **Bug ID** | BUG-013 |
 
 ---
-
-| Field | Value |
-|-------|-------|
-| **ID** | TC_CHECKOUT_004 |
-| **Title** | Verify price calculation for problem_user |
-| **Preconditions** | User logged in as problem_user, items in cart |
-| **Test Data** | Username: problem_user, Password: secret_sauce |
-| **Steps** | 1. Add 2 items to cart<br>2. Go to checkout<br>3. Fill form<br>4. Click Continue<br>5. Observe price summary |
-| **Expected Result** | Total = Item total + Tax. All calculations visible |
-| **Actual Result** | No price summary, tax or total calculation shown on checkout page |
-| **Status** | ❌ Fail |
-| **Bug ID** | BUG-013 |
