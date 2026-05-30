@@ -4,7 +4,7 @@
 
 ---
 
-## BUG-001: Performance glitch user — slow page load
+## BUG-001: performance_glitch_user — slow page load
 
 | Field | Value |
 |-------|-------|
@@ -20,7 +20,7 @@
 
 ---
 
-## BUG-002: problem_user — UI bugs on inventory page
+## BUG-002: problem_user — wrong product images
 
 | Field | Value |
 |-------|-------|
@@ -31,24 +31,24 @@
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
 | **Steps** | 1. Login as problem_user / secret_sauce<br>2. Observe inventory page |
-| **Expected** | All product images correct |
+| **Expected** | All product images displayed correctly |
 | **Actual** | All product images are wrong/broken |
 
 ---
 
-## BUG-003: error_user — UI bugs on inventory page
+## BUG-003: error_user — multiple errors on inventory page
 
 | Field | Value |
 |-------|-------|
 | **ID** | BUG-003 |
-| **Title** | error_user experiences multiple errors on inventory page |
-| **Severity** | Major |
+| **Title** | error_user cannot remove items from inventory page |
+| **Severity** | Critical |
 | **Priority** | High |
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
-| **Steps** | 1. Login as error_user / secret_sauce<br>2. Observe inventory page |
-| **Expected** | Inventory page works correctly |
-| **Actual** | Multiple errors present — sorting broken, remove button not working |
+| **Steps** | 1. Login as error_user / secret_sauce<br>2. Add item to cart<br>3. Click Remove button on inventory page |
+| **Expected** | Item is removed from cart. Cart badge updates correctly |
+| **Actual** | Item is NOT removed. Remove button does not work on inventory page |
 
 ---
 
@@ -57,14 +57,14 @@
 | Field | Value |
 |-------|-------|
 | **ID** | BUG-004 |
-| **Title** | visual_user sees misplaced elements on inventory page |
+| **Title** | visual_user sees misplaced elements and wrong image on inventory page |
 | **Severity** | Major |
 | **Priority** | High |
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
 | **Steps** | 1. Login as visual_user / secret_sauce<br>2. Observe inventory page |
-| **Expected** | All elements in correct positions |
-| **Actual** | Cart icon misplaced, one product image wrong |
+| **Expected** | All elements in correct positions, all images correct |
+| **Actual** | Cart icon is misplaced, one product image is wrong |
 
 ---
 
@@ -79,12 +79,12 @@
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
 | **Steps** | 1. Login as problem_user / secret_sauce<br>2. Click sort dropdown<br>3. Select "Name (A to Z)" |
-| **Expected** | Products sorted alphabetically |
+| **Expected** | Products sorted alphabetically A to Z |
 | **Actual** | Products remain in original order. No sorting occurs |
 
 ---
 
-## BUG-006: error_user — sorting throws error
+## BUG-006: error_user — sorting throws error popup
 
 | Field | Value |
 |-------|-------|
@@ -96,7 +96,7 @@
 | **Environment** | Chrome, Windows |
 | **Steps** | 1. Login as error_user / secret_sauce<br>2. Click sort dropdown<br>3. Select any sort option |
 | **Expected** | Products sorted correctly |
-| **Actual** | Error popup: "Sorting is broken! This error has been reported to Backtrace." |
+| **Actual** | Error popup appears: "Sorting is broken! This error has been reported to Backtrace." No sorting occurs |
 
 ---
 
@@ -116,19 +116,19 @@
 
 ---
 
-## BUG-008: error_user — remove from cart not working
+## BUG-008: error_user — add to cart limited to 2 items
 
 | Field | Value |
 |-------|-------|
 | **ID** | BUG-008 |
-| **Title** | Remove button does not remove item from cart for error_user |
+| **Title** | Add to Cart button stops working after 2 items for error_user |
 | **Severity** | Critical |
 | **Priority** | High |
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
-| **Steps** | 1. Login as error_user / secret_sauce<br>2. Add item to cart<br>3. Go to cart page<br>4. Click Remove button |
-| **Expected** | Item removed from cart. Badge updates to 0 |
-| **Actual** | Item remains in cart after clicking Remove. Badge still shows 1 |
+| **Steps** | 1. Login as error_user / secret_sauce<br>2. Add first item to cart<br>3. Add second item to cart<br>4. Try to add third item |
+| **Expected** | All 6 items can be added to cart |
+| **Actual** | Only 2 items can be added. Button stops responding after 2 items |
 
 ---
 
@@ -142,7 +142,7 @@
 | **Priority** | Medium |
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
-| **Steps** | 1. Login as visual_user / secret_sauce<br>2. Add item to cart<br>3. Go to cart page<br>4. Observe Checkout button |
+| **Steps** | 1. Login as visual_user / secret_sauce<br>2. Add item to cart<br>3. Go to cart page<br>4. Observe Checkout button position |
 | **Expected** | Checkout button at bottom of cart page |
 | **Actual** | Checkout button floating in top right corner of page |
 
@@ -160,11 +160,11 @@
 | **Environment** | Chrome, Windows |
 | **Steps** | 1. Login as visual_user / secret_sauce<br>2. Add item to cart<br>3. Go to checkout<br>4. Observe form fields |
 | **Expected** | Form has 3 fields: First Name, Last Name, Zip/Postal Code |
-| **Actual** | Zip/Postal Code field completely missing |
+| **Actual** | Zip/Postal Code field completely missing from form |
 
 ---
 
-## BUG-011: problem_user — Last Name field frozen
+## BUG-011: problem_user — Last Name field frozen on checkout
 
 | Field | Value |
 |-------|-------|
@@ -174,38 +174,38 @@
 | **Priority** | High |
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
-| **Steps** | 1. Login as problem_user / secret_sauce<br>2. Add item to cart<br>3. Go to checkout<br>4. Click Last Name field<br>5. Try to type |
-| **Expected** | Field accepts text input |
-| **Actual** | Field completely frozen. No input accepted |
+| **Steps** | 1. Login as problem_user / secret_sauce<br>2. Add item to cart<br>3. Go to checkout<br>4. Click Last Name field<br>5. Try to type any text |
+| **Expected** | Last Name field accepts text input normally |
+| **Actual** | Field is frozen — no input accepted. Error: "Last Name is required" appears even when attempting to type |
 
 ---
 
-## BUG-012: standard_user — checkout allowed with empty cart
+## BUG-012: error_user — Last Name field does nothing on checkout
 
 | Field | Value |
 |-------|-------|
 | **ID** | BUG-012 |
+| **Title** | Last Name field does nothing when clicked for error_user |
+| **Severity** | Critical |
+| **Priority** | High |
+| **Status** | Open |
+| **Environment** | Chrome, Windows |
+| **Steps** | 1. Login as error_user / secret_sauce<br>2. Add item to cart<br>3. Go to checkout<br>4. Click Last Name field<br>5. Try to type any text |
+| **Expected** | Last Name field accepts text input normally |
+| **Actual** | Nothing happens when clicking the field. No input possible |
+
+---
+
+## BUG-013: standard_user — checkout allowed with empty cart
+
+| Field | Value |
+|-------|-------|
+| **ID** | BUG-013 |
 | **Title** | User can proceed to checkout with empty cart |
 | **Severity** | Minor |
 | **Priority** | Medium |
 | **Status** | Open |
 | **Environment** | Chrome, Windows |
-| **Steps** | 1. Login as standard_user / secret_sauce<br>2. Do not add any items<br>3. Click cart icon<br>4. Click Checkout |
-| **Expected** | Warning: "Cart is empty" or Checkout button disabled |
+| **Steps** | 1. Login as standard_user / secret_sauce<br>2. Do not add any items to cart<br>3. Click cart icon<br>4. Click Checkout button |
+| **Expected** | Warning message: "Cart is empty" OR Checkout button disabled |
 | **Actual** | User proceeds to checkout with empty cart. No warning shown |
-
----
-
-## BUG-013: problem_user — no price calculation on checkout
-
-| Field | Value |
-|-------|-------|
-| **ID** | BUG-013 |
-| **Title** | Price summary and tax not shown on checkout for problem_user |
-| **Severity** | Critical |
-| **Priority** | High |
-| **Status** | Open |
-| **Environment** | Chrome, Windows |
-| **Steps** | 1. Login as problem_user / secret_sauce<br>2. Add items to cart<br>3. Go to checkout<br>4. Complete form<br>5. Click Continue |
-| **Expected** | Checkout overview shows item total, tax and final total |
-| **Actual** | No price summary, tax or total calculation displayed |
